@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Builds / dist
+dist/
+build/
+
+# Env files (keep secrets out of Git)
+.env
+.env.*
