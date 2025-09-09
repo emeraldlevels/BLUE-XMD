@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tracle • README (HTML)</title>
+  <meta name="description" content="Tracle — a modern WhatsApp bot by Brenald Media. Features, setup, and links." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --card: rgba(255,255,255,.06);
+      --card-border: rgba(255,255,255,.12);
+      --text: #e6edf3;
+      --muted: #98a2b3;
+      --brand: #7c3aed;
+      --brand-2: #06b6d4;
+      --glow: 0 10px 30px rgba(124,58,237,.35);
+      --radius: 18px;
+      --ring: 0 0 0 2px rgba(124,58,237,.35), 0 0 0 8px rgba(124,58,237,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(124,58,237,.25), transparent 50%),
+                  radial-gradient(900px 600px at 110% 10%, rgba(6,182,212,.22), transparent 50%),
+                  var(--bg);
+      color: var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:24px}
+    .hero{
+      position:relative;
+      padding:72px 0 48px;
+      display:grid;
+      gap:24px;
+      align-items:center;
+      grid-template-columns: 1.1fr .9fr;
+    }
+    @media (max-width: 900px){ .hero{ grid-template-columns: 1fr; padding:56px 0 32px; } }
+    .title{
+      font-weight:900;
+      line-height:1.05;
+      font-size: clamp(38px, 6vw, 64px);
+      letter-spacing:-.02em;
+    }
+    .subtitle{
+      color:var(--muted);
+      font-size: clamp(16px, 2.4vw, 20px);
+      margin-top:10px;
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 14px;border-radius:999px;
+      background: linear-gradient(135deg, rgba(124,58,237,.25), rgba(6,182,212,.22));
+      border:1px solid var(--card-border);
+      backdrop-filter: blur(8px);
+      font-weight:600;
+      letter-spacing:.2px;
+      box-shadow: var(--glow);
+    }
+    .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .btn{
+      position:relative;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,58,237,.9), rgba(6,182,212,.9));
+      color:white;font-weight:700;border:0;cursor:pointer;
+      transform: translateZ(0);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+      box-shadow: var(--glow);
+      user-select:none;
+    }
+    .btn.secondary{background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.05)); color:#e6edf3; border:1px solid var(--card-border)}
+    .btn:hover{transform: translateY(-2px); filter:saturate(1.05)}
+    .btn:active{transform: translateY(0);}
+    .card{
+      position:relative;
+      background: var(--card);
+      border:1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding:22px;
+      overflow:hidden;
+      box-shadow: 0 1px 0 rgba(255,255,255,.05), 0 20px 60px rgba(0,0,0,.25);
+    }
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns: repeat(3, 1fr)}
+    .grid.cols-2{grid-template-columns: repeat(2, 1fr)}
+    @media (max-width: 900px){ .grid.cols-3{grid-template-columns:1fr} .grid.cols-2{grid-template-columns:1fr} }
+    .section{padding:28px 0}
+    .section h2{font-size: clamp(24px, 3.2vw, 32px); margin:0 0 10px; letter-spacing:-.02em}
+    .muted{color:var(--muted)}
+    .code{
+      position:relative;
+      background:#0d1117;
+      border:1px solid #30363d;
+      border-radius:14px;
+      padding:16px 16px 16px 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      overflow:auto;
+    }
+    .code pre{margin:0;font-size:14px;line-height:1.55;white-space:pre}
+    .copy{
+      position:absolute;top:10px;right:10px;
+      border:1px solid #30363d;
+      background:#11151a;
+      color:#c9d1d9;
+      padding:6px 10px;border-radius:10px;cursor:pointer;font-size:12px
+    }
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;border:1px solid var(--card-border);background:rgba(255,255,255,.05)}
+    .list{display:grid;gap:10px}
+    .list li{display:flex;align-items:flex-start;gap:10px}
+    .list i{margin-top:3px}
+    .tilt{transform-style:preserve-3d;will-change:transform;transition: transform .15s ease}
+    .tilt:hover{transform: rotateX(4deg) rotateY(-4deg)}
+    .orb{
+      position:absolute; inset:-40% -30% auto auto; width: 60vmin; aspect-ratio:1/1;
+      background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.28), transparent 55%),
+                  radial-gradient(circle at 70% 70%, rgba(6,182,212,.28), transparent 55%);
+      filter: blur(30px); opacity:.9; pointer-events:none; transform: rotate(12deg);
+      animation: float 10s ease-in-out infinite alternate;
+    }
+    @keyframes float { from{ transform: translateY(-10px) rotate(8deg)} to{ transform: translateY(18px) rotate(16deg)} }
+    footer{padding:36px 0 60px;color:var(--muted);text-align:center}
+    .hr{height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);margin:22px 0}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--card-border);background:rgba(255,255,255,.06);font-size:12px;color:var(--muted)}
+    .kbd{font-family:inherit;border:1px solid #30363d;border-bottom-width:3px;border-radius:8px;padding:0 6px;background:#0d1117;color:#c9d1d9}
+    .anchor{scroll-margin-top:80px}
+    .nav{
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(11,15,20,.6); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.4px}
+    .logo .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 0 4px rgba(124,58,237,.15)}
+    .nav a.link{padding:8px 12px;border-radius:10px}
+    .nav a.link:hover{background:rgba(255,255,255,.06)}
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="logo">
+        <div class="dot"></div>
+        <span>Tracle</span>
+        <span class="pill">WhatsApp Bot</span>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <a class="link" href="#features">Features</a>
+        <a class="link" href="#install">Install</a>
+        <a class="link" href="#deploy">Deployment</a>
+        <a class="link" href="#links">Links</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <div>
+        <span class="chip"><i class="fa-solid fa-bolt"></i> Fast • Simple • Powerful</span>
+        <h1 class="title">Tracle <span style="opacity:.75">— WhatsApp Bot</span></h1>
+        <p class="subtitle">A modern bot powered by Baileys. Built by <strong>Brenald Media</strong>. Smooth setup, clean plugins, and a delightful developer experience.</p>
+        <div class="btns">
+          <a class="btn" href="https://whatsapp.com/channel/0029VbBPPXV3WHTTNAWOGf0m" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Bot Channel</a>
+          <a class="btn secondary" href="https://github.com/Brenaldmedia/Tracle" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub Repo</a>
+          <a class="btn secondary" href="#install"><i class="fa-solid fa-terminal"></i> Get Started</a>
+        </div>
+      </div>
+      <div class="card tilt">
+        <div class="orb"></div>
+        <h3 style="margin:0 0 8px">What you get</h3>
+        <ul class="list muted" style="margin:0">
+          <li><i class="fa-solid fa-circle-check"></i> Auto-replies, media tools (TikTok, YouTube, etc.)</li>
+          <li><i class="fa-solid fa-circle-check"></i> Plugin-based commands</li>
+          <li><i class="fa-solid fa-circle-check"></i> Local login with number/OTP</li>
+          <li><i class="fa-solid fa-circle-check"></i> Ready for v1.2.0 persistent sessions</li>
+        </ul>
+        <div class="hr"></div>
+        <div class="badge"><i class="fa-solid fa-code"></i> Node.js • Baileys</div>
+      </div>
+    </section>
+
+    <section class="section anchor" id="features">
+      <h2>⚡ Features (v1.0.x)</h2>
+      <p class="muted">Small today, mighty tomorrow. Here’s what Tracle can do right now:</p>
+      <div class="grid cols-3">
+        <div class="card tilt">
+          <h3 style="margin:0 0 6px">Auto Replies</h3>
+          <p class="muted">Smart message handling with clean, extensible handlers.</p>
+        </div>
+        <div class="card tilt">
+          <h3 style="margin:0 0 6px">Media Tools</h3>
+          <p class="muted">Download/share media from popular platforms like TikTok & YouTube.</p>
+        </div>
+        <div class="card tilt">
+          <h3 style="margin:0 0 6px">Plugin System</h3>
+          <p class="muted">Drop commands in <code>/plugins</code>; hot, simple, and tidy.</p>
+        </div>
+        <div class="card tilt">
+          <h3 style="margin:0 0 6px">Local Login</h3>
+          <p class="muted">Run locally or on a VPS—enter your WhatsApp number, receive an OTP, and connect.</p>
+        </div>
+        <div class="card tilt">
+          <h3 style="margin:0 0 6px">Deploy Path</h3>
+          <p class="muted">v1.2.0 adds session persistence for Render/Railway/Heroku.</p>
+        </div>
+        <div class="card tilt">
+          <h3 style="margin:0 0 6px">Open Source</h3>
+          <p class="muted">MIT-lean vibes—PRs welcome. Star the repo to support!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section anchor" id="install">
+      <h2>🛠️ Installation</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3 style="margin:0 0 10px"><i class="fa-solid fa-download"></i> Clone & Install</h3>
+          <div class="code">
+            <button class="copy" data-copy="git clone https://github.com/Brenaldmedia/Tracle.git&#10;cd Tracle&#10;npm install">Copy</button>
+            <pre><code>$ git clone https://github.com/Brenaldmedia/Tracle.git
+$ cd Tracle
+$ npm install</code></pre>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 10px"><i class="fa-solid fa-rocket"></i> Run the Bot</h3>
+          <div class="code">
+            <button class="copy" data-copy="node index.js">Copy</button>
+            <pre><code>$ node index.js</code></pre>
+          </div>
+          <p class="muted" style="margin-top:10px">On first run, Tracle will ask for your <strong>WhatsApp number</strong> and send you a <strong>login code</strong>. Enter the code and you're connected.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section anchor" id="deploy">
+      <h2>🌍 Deployment Notes</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3 style="margin:0 0 6px">Local / VPS</h3>
+          <p class="muted">Works out of the box with interactive login (number + OTP).</p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 6px">Render / Railway / Heroku</h3>
+          <p class="muted">Planned in <strong>v1.2.0</strong> via persistent session storage (no terminal input needed).</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <h3 style="margin:0 0 10px">Project Structure</h3>
+        <div class="code">
+<pre><code>Tracle/
+├─ index.js        # Main bot file
+├─ package.json    # Dependencies & scripts
+├─ plugins/        # Custom commands/features
+└─ session/        # Auth data (created after first login)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section anchor" id="links">
+      <h2>🔗 Links & Community</h2>
+      <div class="grid cols-2">
+        <a class="card tilt" href="https://whatsapp.com/channel/0029VbBPPXV3WHTTNAWOGf0m" target="_blank" rel="noopener">
+          <h3 style="margin:0 0 6px"><i class="fa-brands fa-whatsapp"></i> Bot Channel</h3>
+          <p class="muted">Follow for news, updates, and tips.</p>
+        </a>
+        <a class="card tilt" href="https://github.com/Brenaldmedia/Tracle" target="_blank" rel="noopener">
+          <h3 style="margin:0 0 6px"><i class="fa-brands fa-github"></i> GitHub Repo</h3>
+          <p class="muted">Source code, issues, and contributions.</p>
+        </a>
+        <a class="card tilt" href="https://www.youtube.com/@BrenaldMedia" target="_blank" rel="noopener">
+          <h3 style="margin:0 0 6px"><i class="fa-brands fa-youtube"></i> YouTube</h3>
+          <p class="muted">Tutorials and walkthroughs by Brenald Media.</p>
+        </a>
+        <a class="card tilt" href="https://www.tiktok.com/@brenaldmedia?_" target="_blank" rel="noopener">
+          <h3 style="margin:0 0 6px"><i class="fa-brands fa-tiktok"></i> TikTok</h3>
+          <p class="muted">Quick tips & showcases.</p>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="hr"></div>
+      <p>Made with <span aria-label="love">❤️</span> by <strong>Brenald Media</strong>.</p>
+      <p class="muted">Tracle — A WhatsApp bot made simple.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Copy buttons
+    document.querySelectorAll('.copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const txt = btn.getAttribute('data-copy');
+        navigator.clipboard.writeText(txt);
+        btn.textContent = 'Copied!';
+        btn.style.boxShadow = 'var(--ring)';
+        setTimeout(() => { btn.textContent = 'Copy'; btn.style.boxShadow = 'none'; }, 1200);
+      });
+    });
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.animate([
+            {opacity:0, transform:'translateY(16px) scale(.98)'},
+            {opacity:1, transform:'translateY(0) scale(1)'},
+          ], {duration:600, easing:'cubic-bezier(.22,1,.36,1)', fill:'forwards'});
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.16});
+
+    document.querySelectorAll('.card, .tilt, .section h2').forEach(el=>io.observe(el));
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+          history.pushState(null,'',a.getAttribute('href'));
+        }
+      })
+    });
+  </script>
+</body>
+</html>
