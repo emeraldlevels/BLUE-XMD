@@ -14,3 +14,4 @@ build/
 # Env files (keep secrets out of Git)
 .env
 .env.*
+session/
