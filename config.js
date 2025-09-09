@@ -1,34 +1,82 @@
-// config.js
+const fs = require('fs');
+if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env' });
 
-// Bot owner info
-export const OWNER_NAME = "BrenaldMedia";
-export const OWNER_NUMBER = "2348150221529";  
+// Robust convertToBool
+function convertToBool(value, defaultValue = false) {
+    if (typeof value === 'undefined') return defaultValue;
+    if (typeof value === 'string') return value.toLowerCase() === 'true';
+    return Boolean(value);
+}
 
-// Bot settings
-export const PREFIX = ".";          // Command prefix
-export const BOT_VERSION = "1.0";
-export let MODE = "public";         // public or private (mutable)
+module.exports = {
+    // === STATUS FEATURES ===
+    AUTO_STATUS_SEEN: convertToBool(process.env.AUTO_STATUS_SEEN, true),
+    AUTO_STATUS_REPLY: convertToBool(process.env.AUTO_STATUS_REPLY, false),
+    AUTO_STATUS_REACT: convertToBool(process.env.AUTO_STATUS_REACT, true),
+    AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*YOUR STATUS HAS BEEN SEEN BY TRACLE🤍*",
 
-// Auto-systems toggles
-export let AUTO_TYPING = true;          // Auto typing
-export let AUTO_RECORDING = true;       // Auto recording
-export let AUTO_VIEW_STATUS = true;     // Auto view status
-export let AUTO_LIKE_STATUS = true;     // Auto like status
-export let AUTO_STATUS_REACT = true;    // Auto react to statuses
-export let ANTI_LINK = false;           // Anti-link in groups
+    // === WELCOME / EVENTS ===
+    WELCOME: convertToBool(process.env.WELCOME, true),
+    GOODBYE: convertToBool(process.env.GOODBYE, true),
+    ADMIN_EVENTS: convertToBool(process.env.ADMIN_EVENTS, true),
 
-// Auto reaction emoji (default ❗ but owner can change)
-export let AUTO_REACT_EMOJI = "❗";
+    // === ANTI-LINK / BAD WORDS ===
+    ANTI_LINK: convertToBool(process.env.ANTI_LINK, true),
+    ANTI_LINK_KICK: convertToBool(process.env.ANTI_LINK_KICK, false),
+    DELETE_LINKS: convertToBool(process.env.DELETE_LINKS, true),
+    ANTI_BAD: convertToBool(process.env.ANTI_BAD, true),
 
-// Dynamic toggle system (owner-only)
-export const toggleAutoSystem = (systemName, value) => {
-    switch (systemName.toLowerCase()) {
-        case "autotyping": AUTO_TYPING = value; break;
-        case "autorecording": AUTO_RECORDING = value; break;
-        case "autoview": AUTO_VIEW_STATUS = value; break;
-        case "autolikestatus": AUTO_LIKE_STATUS = value; break;
-        case "autostatusreact": AUTO_STATUS_REACT = value; break;
-        case "antilink": ANTI_LINK = value; break;
-        default: console.log(`⚠️ Unknown auto system: ${systemName}`);
-    }
+    // === MENTION / AUTO REACT ===
+    MENTION_REPLY: convertToBool(process.env.MENTION_REPLY, false),
+    CUSTOM_REACT: convertToBool(process.env.CUSTOM_REACT, false),
+    CUSTOM_REACT_EMOJIS: process.env.CUSTOM_REACT_EMOJIS || "💝,💖,💗,❤️‍🩹,❤️,🧡,💛,💚,💙,💜,🤎,🖤,🤍",
+    AUTO_REACT: convertToBool(process.env.AUTO_REACT, false),
+
+    // === MODE / BEHAVIOUR ===
+    MODE: process.env.MODE || "public",
+    ALWAYS_ONLINE: convertToBool(process.env.ALWAYS_ONLINE, false),
+    PUBLIC_MODE: convertToBool(process.env.PUBLIC_MODE, true),
+    AUTO_REPLY: convertToBool(process.env.AUTO_REPLY, false),
+    AUTO_VOICE: convertToBool(process.env.AUTO_VOICE, false),
+    AUTO_STICKER: convertToBool(process.env.AUTO_STICKER, false),
+    READ_MESSAGE: convertToBool(process.env.READ_MESSAGE, false),
+    READ_CMD: convertToBool(process.env.READ_CMD, false),
+
+    // === AUTO PRESENCE ===
+    AUTO_RECORDING: convertToBool(process.env.AUTO_RECORDING, false),
+    AUTO_TYPING: convertToBool(process.env.AUTO_TYPING, false),
+
+    // === OWNER & BOT DETAILS ===
+    OWNER_NUMBER: process.env.OWNER_NUMBER || "2348150221529",
+    OWNER_NAME: process.env.OWNER_NAME || "Brenald Media",
+    BOT_NAME: process.env.BOT_NAME || "TRACLE",
+    PREFIX: process.env.PREFIX || ".",
+    STICKER_NAME: process.env.STICKER_NAME || "TRACLE",
+    DESCRIPTION: process.env.DESCRIPTION || "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ BrenaldMedia*",
+    DEV: process.env.DEV || "2348150221529",
+
+    // === MESSAGES & MEDIA ===
+    MENU_IMAGE_URL: process.env.MENU_IMAGE_URL || "https://files.catbox.moe/4zbgw2.png",
+    ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/f2em59.png",
+    LIVE_MSG: process.env.LIVE_MSG || "🚀 *Tracle Bot is Alive!* 🚀",
+
+    // === ANTI DELETE / VIEW ONCE ===
+    ANTI_VV: convertToBool(process.env.ANTI_VV, true),
+    ANTI_DEL_PATH: process.env.ANTI_DEL_PATH || "log",
+
+    // === LINKS / SOCIAL ===
+    BOT_CHANNEL: process.env.BOT_CHANNEL || "https://whatsapp.com/channel/0029VbBPPXV3WHTTNAWOGf0m",
+    REPO_LINK: process.env.REPO_LINK || "https://github.com/Brenaldmedia/Tracle",
+    YOUTUBE: process.env.YOUTUBE || "https://www.youtube.com/@BrenaldMedia",
+    TIKTOK: process.env.TIKTOK || "https://www.tiktok.com/@brenaldmedia?_",
+    INSTAGRAM: process.env.INSTAGRAM || "",// fill in if available
+    TWITTER: process.env.TWITTER || "", // fill in if available
+    DISCORD: process.env.DISCORD || "https://discord.gg/f3RNWAh2",
+    WEBSITE: process.env.WEBSITE || "",// fill in if available
+    COMMUNITY: process.env.COMMUNITY || "https://chat.whatsapp.com/HyjSzOxCm8PEc3fEyvzL9S?mode=ems_copy_t",
+
+    // === BANK DETAILS (optional / for placeholders) ===
+    BANK_NAME: process.env.BANK_NAME || "brenaldmedia",// replace with your bank name
+    ACCOUNT_NUMBER: process.env.ACCOUNT_NUMBER || "2345678717", // replace with your account number
+    ACCOUNT_NAME: process.env.ACCOUNT_NAME || "Brenald Media" // replace with your account name
 };
