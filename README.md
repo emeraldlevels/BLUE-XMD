@@ -1,4 +1,4 @@
-# Tracle • WhatsApp Bot
+# BLUE-XMD • WhatsApp Bot
 
 A modern WhatsApp bot powered by Baileys. Built by **Mr Emerald**.
 
