@@ -13,7 +13,7 @@ module.exports = {
     AUTO_STATUS_SEEN: convertToBool(process.env.AUTO_STATUS_SEEN, true),
     AUTO_STATUS_REPLY: convertToBool(process.env.AUTO_STATUS_REPLY, false),
     AUTO_STATUS_REACT: convertToBool(process.env.AUTO_STATUS_REACT, true),
-    AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*YOUR STATUS HAS BEEN SEEN BY TRACLE🤍*",
+    AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*YOUR STATUS HAS BEEN SEEN BY BLUE-XMD* 😊",
 
     // === WELCOME / EVENTS ===
     WELCOME: convertToBool(process.env.WELCOME, true),
@@ -47,36 +47,36 @@ module.exports = {
     AUTO_TYPING: convertToBool(process.env.AUTO_TYPING, false),
 
     // === OWNER & BOT DETAILS ===
-    OWNER_NUMBER: process.env.OWNER_NUMBER || "2348150221529",
-    OWNER_NAME: process.env.OWNER_NAME || "Brenald Media",
-    BOT_NAME: process.env.BOT_NAME || "TRACLE",
+    OWNER_NUMBER: process.env.OWNER_NUMBER || "2349041772077",
+    OWNER_NAME: process.env.OWNER_NAME || "Mr Emerald",
+    BOT_NAME: process.env.BOT_NAME || "Blue-xmd",
     PREFIX: process.env.PREFIX || ".",
-    STICKER_NAME: process.env.STICKER_NAME || "TRACLE",
-    DESCRIPTION: process.env.DESCRIPTION || "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ BrenaldMedia*",
-    DEV: process.env.DEV || "2348150221529",
+    STICKER_NAME: process.env.STICKER_NAME || "Blue-xmd",
+    DESCRIPTION: process.env.DESCRIPTION || "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ BLUE-XMD*",
+    DEV: process.env.DEV || "2349041772077",
 
     // === MESSAGES & MEDIA ===
-    MENU_IMAGE_URL: process.env.MENU_IMAGE_URL || "https://files.catbox.moe/4zbgw2.png",
-    ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/f2em59.png",
-    LIVE_MSG: process.env.LIVE_MSG || "🚀 *Tracle Bot is Alive!* 🚀",
+    MENU_IMAGE_URL: process.env.MENU_IMAGE_URL || "https://files.catbox.moe/lthtjq.jpeg",
+    ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/gcojxb.jpg",
+    LIVE_MSG: process.env.LIVE_MSG || "🚀 *BLUE-XMD  is Alive!* 🚀",
 
     // === ANTI DELETE / VIEW ONCE ===
     ANTI_VV: convertToBool(process.env.ANTI_VV, true),
     ANTI_DEL_PATH: process.env.ANTI_DEL_PATH || "log",
 
     // === LINKS / SOCIAL ===
-    BOT_CHANNEL: process.env.BOT_CHANNEL || "https://whatsapp.com/channel/0029VbBPPXV3WHTTNAWOGf0m",
-    REPO_LINK: process.env.REPO_LINK || "https://github.com/Brenaldmedia/Tracle",
-    YOUTUBE: process.env.YOUTUBE || "https://www.youtube.com/@BrenaldMedia",
-    TIKTOK: process.env.TIKTOK || "https://www.tiktok.com/@brenaldmedia?_",
+    BOT_CHANNEL: process.env.BOT_CHANNEL || "https://whatsapp.com/channel/0029Vb6OLyzEAKWFsk7REX3r",
+    REPO_LINK: process.env.REPO_LINK || "https://github.com/emeraldlevels/BLUE-XMD",
+    YOUTUBE: process.env.YOUTUBE || "https://www.youtube.com/@EmeraldLevels",
+    TIKTOK: process.env.TIKTOK || "https://tiktok.com/@emeralds.levels",
     INSTAGRAM: process.env.INSTAGRAM || "",// fill in if available
     TWITTER: process.env.TWITTER || "", // fill in if available
     DISCORD: process.env.DISCORD || "https://discord.gg/f3RNWAh2",
     WEBSITE: process.env.WEBSITE || "",// fill in if available
-    COMMUNITY: process.env.COMMUNITY || "https://chat.whatsapp.com/HyjSzOxCm8PEc3fEyvzL9S?mode=ems_copy_t",
+    COMMUNITY: process.env.COMMUNITY || "https://chat.whatsapp.com/EdtpVr9VqbPJwWYdH92vXI?mode=ems_copy_c",
 
     // === BANK DETAILS (optional / for placeholders) ===
-    BANK_NAME: process.env.BANK_NAME || "brenaldmedia",// replace with your bank name
-    ACCOUNT_NUMBER: process.env.ACCOUNT_NUMBER || "2345678717", // replace with your account number
-    ACCOUNT_NAME: process.env.ACCOUNT_NAME || "Brenald Media" // replace with your account name
+    BANK_NAME: process.env.BANK_NAME || "access bank",// replace with your bank name
+    ACCOUNT_NUMBER: process.env.ACCOUNT_NUMBER || "1486604137", // replace with your account number
+    ACCOUNT_NAME: process.env.ACCOUNT_NAME || "fransisca kelechi Okonkwo" // replace with your account name
 };

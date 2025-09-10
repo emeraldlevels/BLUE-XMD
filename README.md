@@ -1,6 +1,6 @@
 # Tracle • WhatsApp Bot
 
-A modern WhatsApp bot powered by Baileys. Built by **Brenald Media**.
+A modern WhatsApp bot powered by Baileys. Built by **Mr Emerald**.
 
 Check out the interactive README: [README.html](./README.html)
 
@@ -12,14 +12,14 @@ Check out the interactive README: [README.html](./README.html)
 
 ## Installation
 ```bash
-git clone https://github.com/Brenaldmedia/Tracle.git
-cd Tracle
+git clone https://github.com/emeraldlevels/BLUE-XMD
+cd BLUE-XMD
 npm install
 node index.js
 ```
 
 ## Links & Community
-- [Bot Channel](https://whatsapp.com/channel/0029VbBPPXV3WHTTNAWOGf0m)
-- [GitHub Repo](https://github.com/Brenaldmedia/Tracle)
-- [YouTube](https://www.youtube.com/@BrenaldMedia)
-- [TikTok](https://www.tiktok.com/@brenaldmedia?_)
+- [Bot Channel](https://whatsapp.com/channel/0029Vb6OLyzEAKWFsk7REX3r)
+- [GitHub Repo](https://github.com/emeraldlevels/BLUE-XMD)
+- [YouTube](https://www.youtube.com/@EmeraldLevels)
+- [TikTok](https://tiktok.com/@emeralds.levels)
